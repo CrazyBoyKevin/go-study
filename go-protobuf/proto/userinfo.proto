@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+//配置输出目录和包名 ,可省略包名
+option go_package = "./userService";
+
+//;结尾
+message userinfo {
+  string username = 1;
+  int32 age = 2;
+  PhoneType type = 3;
+  repeated string hobby = 4;
+}
+
+//枚举
+enum PhoneType {
+  MOBILE = 0;
+  HOME = 1;
+  WORK = 2;
+}
+
+//编译命令
+//protoc --go_out=./ *.proto

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option go_package = "./goodsService";
+
+//定义rpc服务
+service GoodsService {
+  rpc AddGoods(AddGoodsReq) returns (AddGoodsRes);
+  rpc GetGoods(GetGoodsReq) returns (GetGoodsRes);
+}
+
+message GoodsModel {
+  int32 id = 1;
+  string title = 2;
+  double price = 3;
+  string content = 4;
+}
+
+message GetGoodsReq {
+  int32 id = 1;
+}
+
+message GetGoodsRes {
+  repeated GoodsModel resultList = 1;
+}
+
+message AddGoodsReq {
+  GoodsModel params = 1;
+}
+
+message AddGoodsRes {
+  string msg= 1;
+  bool success = 2;
+}
+
+//protoc --go_out=plugins=grpc:./ *.proto

@@ -1,0 +1,6 @@
+.DS_Store
+__debug_*
+
+.vscode
+
+.idea
